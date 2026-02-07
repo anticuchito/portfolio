@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | Portfolio">
+  <div class="max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-8">
+      ABOUT <span class="accent">//</span>
+    </h1>
+
+    <div class="space-y-8">
+      <section class="box-brutal p-8">
+        <h2 class="text-2xl font-bold mb-4">¿QUIÉN SOY?</h2>
+        <p class="text-secondary leading-relaxed mb-4">
+          [Escribe aquí una breve descripción sobre ti. Sé honesto, directo. 
+          No uses jerga corporativa. Habla como persona real.]
+        </p>
+        <p class="text-secondary leading-relaxed">
+          [Algo más personal. Qué te gusta hacer fuera del trabajo, 
+          qué te motiva, por qué haces lo que haces.]
+        </p>
+      </section>
+
+      <section class="box-brutal p-8">
+        <h2 class="text-2xl font-bold mb-4">HABILIDADES</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 1]</span>
+          </div>
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 2]</span>
+          </div>
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 3]</span>
+          </div>
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 4]</span>
+          </div>
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 5]</span>
+          </div>
+          <div class="border-2 border-brutal p-3 text-center">
+            <span class="font-bold">[Skill 6]</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="box-brutal p-8">
+        <h2 class="text-2xl font-bold mb-4">INTERESES</h2>
+        <ul class="list-disc list-inside space-y-2 text-secondary">
+          <li>[Interés 1]</li>
+          <li>[Interés 2]</li>
+          <li>[Interés 3]</li>
+          <li>[Interés 4]</li>
+        </ul>
+      </section>
+
+      <div class="flex gap-4">
+        <a href="/experiencia" class="btn-brutal">→ VER EXPERIENCIA</a>
+        <a href="/contacto" class="btn-brutal">→ CONTACTAR</a>
+      </div>
+    </div>
+  </div>
+</Layout>

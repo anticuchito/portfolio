@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: "[Nombre Proyecto 1]",
+    description: "[Breve descripción del proyecto. Qué problema resuelve, qué tecnologías usaste.]",
+    tech: ["[Tech 1]", "[Tech 2]", "[Tech 3]"],
+    link: "#",
+    github: "#",
+    status: "Completado"
+  },
+  {
+    title: "[Nombre Proyecto 2]",
+    description: "[Descripción del segundo proyecto. Qué aprendiste haciéndolo.]",
+    tech: ["[Tech 1]", "[Tech 2]"],
+    link: "#",
+    github: "#",
+    status: "En progreso"
+  },
+  {
+    title: "[Nombre Proyecto 3]",
+    description: "[Tercer proyecto. Puede ser más experimental o personal.]",
+    tech: ["[Tech 1]", "[Tech 2]", "[Tech 3]", "[Tech 4]"],
+    link: "#",
+    github: "#",
+    status: "Completado"
+  }
+];
+---
+
+<Layout title="Proyectos | Portfolio">
+  <div>
+    <h1 class="text-4xl md:text-5xl font-bold mb-8">
+      PROYECTOS <span class="accent">//</span>
+    </h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {projects.map((project) => (
+        <article class="box-brutal p-6 md:p-8 flex flex-col">
+          <div class="flex justify-between items-start mb-4">
+            <h2 class="text-xl md:text-2xl font-bold">{project.title}</h2>
+            <span class={`text-xs font-bold px-2 py-1 border-2 ${
+              project.status === 'Completado' 
+                ? 'border-accent text-accent' 
+                : 'border-brutal text-secondary'
+            }`}>
+              {project.status}
+            </span>
+          </div>
+          
+          <p class="text-secondary mb-6 flex-grow">
+            {project.description}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            {project.tech.map((tech) => (
+              <span class="text-xs font-bold border-2 border-brutal px-2 py-1">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div class="flex gap-4 mt-auto">
+            {project.link !== '#' && (
+              <a href={project.link} class="btn-brutal text-sm" target="_blank" rel="noopener">
+                VER DEMO →
+              </a>
+            )}
+            {project.github !== '#' && (
+              <a href={project.github} class="btn-brutal text-sm" target="_blank" rel="noopener">
+                CÓDIGO →
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-secondary mb-4">¿Quieres ver más?</p>
+      <a href="https://github.com/[tu-usuario]" class="btn-brutal" target="_blank" rel="noopener">
+        GITHUB →
+      </a>
+    </div>
+  </div>
+</Layout>

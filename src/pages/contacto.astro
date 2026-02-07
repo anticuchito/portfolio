@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto | Portfolio">
+  <div class="max-w-2xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-8">
+      CONTACTO <span class="accent">//</span>
+    </h1>
+
+    <div class="space-y-8">
+      <!-- Intro -->
+      <section class="box-brutal p-8">
+        <p class="text-lg leading-relaxed mb-4">
+          ¿Tienes un proyecto interesante? ¿Quieres colaborar? 
+          ¿Solo quieres saludar? 
+        </p>
+        <p class="text-secondary">
+          Escríbeme. Respondo cuando puedo (generalmente en 24-48 horas).
+        </p>
+      </section>
+
+      <!-- Links de contacto directo -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a 
+          href="mailto:[tu-email@ejemplo.com]" 
+          class="box-brutal p-6 flex items-center justify-between no-underline group"
+        >
+          <div>
+            <p class="text-sm text-secondary mb-1">EMAIL</p>
+            <p class="font-bold">[tu-email]</p>
+          </div>
+          <span class="text-2xl accent group-hover:translate-x-2 transition-transform">→</span>
+        </a>
+
+        <a 
+          href="https://linkedin.com/in/[tu-perfil]" 
+          class="box-brutal p-6 flex items-center justify-between no-underline group"
+          target="_blank" 
+          rel="noopener"
+        >
+          <div>
+            <p class="text-sm text-secondary mb-1">LINKEDIN</p>
+            <p class="font-bold">/[tu-perfil]</p>
+          </div>
+          <span class="text-2xl accent group-hover:translate-x-2 transition-transform">→</span>
+        </a>
+
+        <a 
+          href="https://twitter.com/[tu-usuario]" 
+          class="box-brutal p-6 flex items-center justify-between no-underline group"
+          target="_blank" 
+          rel="noopener"
+        >
+          <div>
+            <p class="text-sm text-secondary mb-1">TWITTER / X</p>
+            <p class="font-bold">@[tu-usuario]</p>
+          </div>
+          <span class="text-2xl accent group-hover:translate-x-2 transition-transform">→</span>
+        </a>
+
+        <a 
+          href="https://github.com/[tu-usuario]" 
+          class="box-brutal p-6 flex items-center justify-between no-underline group"
+          target="_blank" 
+          rel="noopener"
+        >
+          <div>
+            <p class="text-sm text-secondary mb-1">GITHUB</p>
+            <p class="font-bold">@[tu-usuario]</p>
+          </div>
+          <span class="text-2xl accent group-hover:translate-x-2 transition-transform">→</span>
+        </a>
+      </section>
+
+      <!-- Formulario simple (opcional) -->
+      <section class="box-brutal p-8">
+        <h2 class="text-xl font-bold mb-6">ENVIAR MENSAJE</h2>
+        <form class="space-y-4">
+          <div>
+            <label class="block font-bold mb-2 text-sm">NOMBRE</label>
+            <input 
+              type="text" 
+              class="w-full border-4 border-brutal p-3 bg-transparent focus:outline-none focus:border-accent"
+              placeholder="Tu nombre"
+            />
+          </div>
+          <div>
+            <label class="block font-bold mb-2 text-sm">EMAIL</label>
+            <input 
+              type="email" 
+              class="w-full border-4 border-brutal p-3 bg-transparent focus:outline-none focus:border-accent"
+              placeholder="tu@email.com"
+            />
+          </div>
+          <div>
+            <label class="block font-bold mb-2 text-sm">MENSAJE</label>
+            <textarea 
+              rows="5" 
+              class="w-full border-4 border-brutal p-3 bg-transparent focus:outline-none focus:border-accent resize-none"
+              placeholder="¿En qué puedo ayudarte?"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-brutal w-full">
+            ENVIAR MENSAJE →
+          </button>
+        </form>
+        <p class="text-sm text-secondary mt-4 text-center">
+          * El formulario es decorativo. Conecta tu servicio de email (Formspree, etc.)
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

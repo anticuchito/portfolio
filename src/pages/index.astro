@@ -1,17 +1,79 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Inicio | Portfolio">
+  <div class="space-y-8">
+    <!-- Introducción -->
+    <section class="mb-12">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+        HOLA, SOY <span class="accent">[TU NOMBRE]</span>
+      </h1>
+      <p class="text-lg md:text-xl text-secondary max-w-2xl">
+        Desarrollador/Profesional. Este es mi espacio en la web. 
+        Nada de distracciones, solo contenido honesto.
+      </p>
+    </section>
+
+    <!-- Grid de cajas brutalistas -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <!-- Caja About -->
+      <a href="/about" class="box-brutal p-8 md:p-12 block no-underline group">
+        <div class="flex justify-between items-start mb-4">
+          <h2 class="text-2xl md:text-3xl font-bold">ABOUT</h2>
+          <span class="text-3xl accent group-hover:rotate-12 transition-transform">→</span>
+        </div>
+        <p class="text-secondary">
+          Quién soy, qué hago, por qué existo. Un poco de contexto antes de seguir.
+        </p>
+      </a>
+
+      <!-- Caja Experiencia -->
+      <a href="/experiencia" class="box-brutal p-8 md:p-12 block no-underline group">
+        <div class="flex justify-between items-start mb-4">
+          <h2 class="text-2xl md:text-3xl font-bold">EXPERIENCIA</h2>
+          <span class="text-3xl accent group-hover:rotate-12 transition-transform">→</span>
+        </div>
+        <p class="text-secondary">
+          Dónde he trabajado, qué he aprendido, qué puedo aportar.
+        </p>
+      </a>
+
+      <!-- Caja Proyectos -->
+      <a href="/proyectos" class="box-brutal p-8 md:p-12 block no-underline group">
+        <div class="flex justify-between items-start mb-4">
+          <h2 class="text-2xl md:text-3xl font-bold">PROYECTOS</h2>
+          <span class="text-3xl accent group-hover:rotate-12 transition-transform">→</span>
+        </div>
+        <p class="text-secondary">
+          Cosas que he construido. Algunas terminadas, otras en progreso.
+        </p>
+      </a>
+
+      <!-- Caja Contacto -->
+      <a href="/contacto" class="box-brutal p-8 md:p-12 block no-underline group">
+        <div class="flex justify-between items-start mb-4">
+          <h2 class="text-2xl md:text-3xl font-bold">CONTACTO</h2>
+          <span class="text-3xl accent group-hover:rotate-12 transition-transform">→</span>
+        </div>
+        <p class="text-secondary">
+          ¿Quieres hablar? Aquí puedes encontrarme. Respondo cuando puedo.
+        </p>
+      </a>
+    </section>
+
+    <!-- Status / Info adicional -->
+    <section class="mt-12 p-6 border-4 border-brutal bg-secondary">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <p class="text-sm text-secondary mb-1">ESTADO ACTUAL</p>
+          <p class="font-bold">Disponible para proyectos / Trabajando en [X]</p>
+        </div>
+        <div class="text-right">
+          <p class="text-sm text-secondary mb-1">UBICACIÓN</p>
+          <p class="font-bold">[Tu Ciudad, País]</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

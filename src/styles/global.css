@@ -1,0 +1,135 @@
+/* Brutalist Theme - Monocromatico con acento rojo oscuro/morado */
+
+@import "tailwindcss";
+
+:root {
+  /* Modo claro - Ocre/Grises */
+  --bg-primary: #e8e4dc;
+  --bg-secondary: #d4cfc4;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --border-color: #1a1a1a;
+  --accent-color: #8b2635; /* Rojo oscuro */
+  --accent-hover: #6b1e2a;
+  --box-bg: #f5f3ef;
+}
+
+.dark {
+  /* Modo oscuro */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --text-primary: #e8e4dc;
+  --text-secondary: #b0aba0;
+  --border-color: #e8e4dc;
+  --accent-color: #9d4edd; /* Morado */
+  --accent-hover: #7b2cbf;
+  --box-bg: #252525;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Utility classes usando las variables */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-box { background-color: var(--box-bg); }
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.border-brutal { border-color: var(--border-color); }
+.accent { color: var(--accent-color); }
+.bg-accent { background-color: var(--accent-color); }
+.border-accent { border-color: var(--accent-color); }
+
+/* Estilos brutalistas */
+.box-brutal {
+  border: 4px solid var(--border-color);
+  background-color: var(--box-bg);
+  transition: all 0.15s ease;
+}
+
+.box-brutal:hover {
+  border-color: var(--accent-color);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--border-color);
+}
+
+.box-brutal:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--border-color);
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Botón brutalista */
+.btn-brutal {
+  border: 3px solid var(--border-color);
+  background-color: var(--box-bg);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-brutal:hover {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: white;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--border-color);
+}
+
+/* Línea divisoria */
+.divider {
+  height: 4px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Scrollbar personalizada brutalista */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary);
+  border-left: 2px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
+/* Animación sutil para el modo toggle */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
