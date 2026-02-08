@@ -91,11 +91,6 @@ interface Language {
   fluency: string;
 }
 
-interface Interest {
-  name: string;
-  keywords?: string[];
-}
-
 interface Reference {
   name: string;
   reference: string;
@@ -122,7 +117,7 @@ interface Resume {
   awards?: Award[];
   certificates?: Certificate[];
   publications?: Publication[];
-  interests?: Interest[];
+  interests?: string[];
   references?: Reference[];
 }
 
@@ -139,7 +134,6 @@ export type {
   Publication,
   Skill,
   Language,
-  Interest,
   Reference,
   Project,
 };
