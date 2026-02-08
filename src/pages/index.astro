@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { basics } from "../lib/data";
+import { basics, projects } from "../lib/data";
 
 const onlyName = basics.name.split(" ")[0];
+const hasProjects = projects && projects.length > 0;
 ---
 
 <Layout title="Inicio | Portfolio">
@@ -55,23 +56,25 @@ const onlyName = basics.name.split(" ")[0];
                 </p>
             </a>
 
-            <!-- Caja Proyectos -->
-            <a
-                href="/proyectos"
-                class="box-brutal p-8 md:p-12 block no-underline group"
-            >
-                <div class="flex justify-between items-start mb-4">
-                    <h2 class="text-2xl md:text-3xl font-bold">PROYECTOS</h2>
-                    <span
-                        class="text-3xl accent motion-safe:group-hover:rotate-12 motion-safe:transition-transform"
-                        >→</span
-                    >
-                </div>
-                <p class="text-secondary">
-                    Cosas que he construido. Algunas terminadas, otras en
-                    progreso.
-                </p>
-            </a>
+            {hasProjects && (
+                <!-- Caja Proyectos -->
+                <a
+                    href="/proyectos"
+                    class="box-brutal p-8 md:p-12 block no-underline group"
+                >
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl md:text-3xl font-bold">PROYECTOS</h2>
+                        <span
+                            class="text-3xl accent motion-safe:group-hover:rotate-12 motion-safe:transition-transform"
+                            >→</span
+                        >
+                    </div>
+                    <p class="text-secondary">
+                        Cosas que he construido. Algunas terminadas, otras en
+                        progreso.
+                    </p>
+                </a>
+            )}
 
             <!-- Caja Contacto -->
             <a

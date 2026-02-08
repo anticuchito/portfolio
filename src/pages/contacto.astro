@@ -1,123 +1,219 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { basics } from "../lib/data";
+import { Icon } from "astro-icon/components";
+
+// Formspree form ID desde variables de entorno
+const FORMSPREE_ID = import.meta.env.PUBLIC_FORMSPREE_ID || "";
+
+// Icon mapping for social profiles
+const iconMap: Record<string, string> = {
+    LinkedIn: "skill-icons:linkedin",
+    GitHub: "skill-icons:github-light",
+    Twitter: "skill-icons:twitter",
+};
 ---
 
 <Layout title="Contacto | Portfolio">
-  <div class="max-w-2xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-8">
-      CONTACTO <span class="accent">//</span>
-    </h1>
+    <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-8">
+            CONTACTO <span class="accent">//</span>
+        </h1>
 
-    <div class="space-y-8">
-      <!-- Intro -->
-      <section class="box-brutal p-8">
-        <p class="text-lg leading-relaxed mb-4">
-          ¿Tienes un proyecto interesante? ¿Quieres colaborar? 
-          ¿Solo quieres saludar? 
-        </p>
-        <p class="text-secondary">
-          Escríbeme. Respondo cuando puedo (generalmente en 24-48 horas).
-        </p>
-      </section>
+        <div class="space-y-8">
+            <!-- Intro -->
+            <section class="box-brutal p-8">
+                <p class="text-lg leading-relaxed mb-4">
+                    ¿Tienes un proyecto interesante? ¿Quieres colaborar? ¿Solo
+                    quieres saludar?
+                </p>
+                <p class="text-secondary">
+                    Escríbeme. Respondo cuando puedo (generalmente en 24-48
+                    horas).
+                </p>
+            </section>
 
-      <!-- Links de contacto directo -->
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <a
-          href="mailto:[tu-email@ejemplo.com]"
-          class="box-brutal p-6 flex items-center justify-between no-underline group"
-        >
-          <div>
-            <p class="text-sm text-secondary mb-1">EMAIL</p>
-            <p class="font-bold">[tu-email]</p>
-          </div>
-          <span class="text-2xl accent motion-safe:group-hover:translate-x-2 motion-safe:transition-transform">→</span>
-        </a>
+            <!-- Links de contacto directo con iconos -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Email -->
+                <a
+                    href={`mailto:${basics.email}`}
+                    class="box-brutal p-6 flex items-center gap-4 no-underline group"
+                    aria-label="Enviar email"
+                >
+                    <div
+                        class="w-12 h-12 border-2 border-brutal flex items-center justify-center shrink-0 group-hover:border-accent transition-colors"
+                    >
+                        <Icon name="skill-icons:gmail-light" class="w-6 h-6" />
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <p class="text-sm text-secondary mb-1">EMAIL</p>
+                        <p class="font-bold truncate text-sm md:text-base">
+                            {basics.email}
+                        </p>
+                    </div>
+                    <span
+                        class="text-2xl accent motion-safe:group-hover:translate-x-1 motion-safe:transition-transform shrink-0"
+                        >→</span
+                    >
+                </a>
 
-        <a
-          href="https://linkedin.com/in/[tu-perfil]"
-          class="box-brutal p-6 flex items-center justify-between no-underline group"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div>
-            <p class="text-sm text-secondary mb-1">LINKEDIN</p>
-            <p class="font-bold">/[tu-perfil]</p>
-          </div>
-          <span class="text-2xl accent motion-safe:group-hover:translate-x-2 motion-safe:transition-transform">→</span>
-        </a>
+                <!-- Perfiles sociales -->
+                {
+                    basics.profiles.map((profile) => {
+                        const iconName =
+                            iconMap[profile.network] || "skill-icons:default";
 
-        <a
-          href="https://twitter.com/[tu-usuario]"
-          class="box-brutal p-6 flex items-center justify-between no-underline group"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div>
-            <p class="text-sm text-secondary mb-1">TWITTER / X</p>
-            <p class="font-bold">@[tu-usuario]</p>
-          </div>
-          <span class="text-2xl accent motion-safe:group-hover:translate-x-2 motion-safe:transition-transform">→</span>
-        </a>
+                        return (
+                            <a
+                                href={profile.url}
+                                class="box-brutal p-6 flex items-center gap-4 no-underline group"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visitar perfil de ${profile.network}`}
+                            >
+                                <div class="w-12 h-12 border-2 border-brutal flex items-center justify-center shrink-0 group-hover:border-accent transition-colors">
+                                    <Icon name={iconName} class="w-6 h-6" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-sm text-secondary mb-1">
+                                        {profile.network.toUpperCase()}
+                                    </p>
+                                    <p class="font-bold truncate text-sm md:text-base">
+                                        @{profile.username}
+                                    </p>
+                                </div>
+                                <span class="text-2xl accent motion-safe:group-hover:translate-x-1 motion-safe:transition-transform shrink-0">
+                                    →
+                                </span>
+                            </a>
+                        );
+                    })
+                }
+            </section>
 
-        <a
-          href="https://github.com/[tu-usuario]"
-          class="box-brutal p-6 flex items-center justify-between no-underline group"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div>
-            <p class="text-sm text-secondary mb-1">GITHUB</p>
-            <p class="font-bold">@[tu-usuario]</p>
-          </div>
-          <span class="text-2xl accent motion-safe:group-hover:translate-x-2 motion-safe:transition-transform">→</span>
-        </a>
-      </section>
+            <!-- Formulario funcional con Formspree -->
+            <section class="box-brutal p-8">
+                <h2 class="text-xl font-bold mb-6">ENVIAR MENSAJE</h2>
+                <form
+                    id="contact-form"
+                    action={`https://formspree.io/f/${FORMSPREE_ID}`}
+                    method="POST"
+                    class="space-y-4"
+                >
+                    <!-- Campo honeypot para protección contra spam -->
+                    <input type="text" name="_gotcha" style="display:none" />
 
-      <!-- Formulario simple (opcional) -->
-      <section class="box-brutal p-8">
-        <h2 class="text-xl font-bold mb-6">ENVIAR MENSAJE</h2>
-        <form class="space-y-4">
-          <div>
-            <label for="nombre" class="block font-bold mb-2 text-sm">NOMBRE</label>
-            <input 
-              id="nombre"
-              name="nombre"
-              type="text" 
-              class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
-              placeholder="Tu nombre"
-              autocomplete="name"
-            />
-          </div>
-          <div>
-            <label for="email" class="block font-bold mb-2 text-sm">EMAIL</label>
-            <input 
-              id="email"
-              name="email"
-              type="email" 
-              class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
-              placeholder="tu@email.com"
-              autocomplete="email"
-              spellcheck="false"
-            />
-          </div>
-          <div>
-            <label for="mensaje" class="block font-bold mb-2 text-sm">MENSAJE</label>
-            <textarea 
-              id="mensaje"
-              name="mensaje"
-              rows="5" 
-              class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent resize-none"
-              placeholder="¿En qué puedo ayudarte?"
-            ></textarea>
-          </div>
-          <button type="submit" class="btn-brutal w-full">
-            ENVIAR MENSAJE →
-          </button>
-        </form>
-        <p class="text-sm text-secondary mt-4 text-center">
-          * El formulario es decorativo. Conecta tu servicio de email (Formspree, etc.)
-        </p>
-      </section>
+                    <div>
+                        <label for="nombre" class="block font-bold mb-2 text-sm"
+                            >NOMBRE</label
+                        >
+                        <input
+                            id="nombre"
+                            name="nombre"
+                            type="text"
+                            required
+                            class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block font-bold mb-2 text-sm"
+                            >EMAIL</label
+                        >
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
+                            placeholder="tu@email.com"
+                            autocomplete="email"
+                            spellcheck="false"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="mensaje"
+                            class="block font-bold mb-2 text-sm">MENSAJE</label
+                        >
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="5"
+                            required
+                            class="w-full border-4 border-brutal p-3 bg-transparent focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent resize-none"
+                            placeholder="¿En qué puedo ayudarte?"></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn-brutal w-full"
+                        id="submit-btn"
+                    >
+                        ENVIAR MENSAJE →
+                    </button>
+
+                    <!-- Mensajes de estado -->
+                    <div id="form-status" class="hidden text-center font-bold">
+                    </div>
+                </form>
+                <p class="text-sm text-secondary mt-4 text-center">
+                    * Los campos son obligatorios. Tu información está
+                    protegida.
+                </p>
+            </section>
+        </div>
     </div>
-  </div>
+
+    <script>
+        // Manejo del formulario con fetch para mejor UX
+        const form = document.getElementById("contact-form") as HTMLFormElement;
+        const status = document.getElementById("form-status") as HTMLDivElement;
+        const submitBtn = document.getElementById(
+            "submit-btn",
+        ) as HTMLButtonElement;
+
+        if (form) {
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                // Mostrar estado de carga
+                submitBtn.textContent = "Enviando...";
+                submitBtn.disabled = true;
+                status.classList.add("hidden");
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: new FormData(form),
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    });
+
+                    if (response.ok) {
+                        // Éxito
+                        status.textContent =
+                            "¡Mensaje enviado! Te responderé pronto.";
+                        status.className =
+                            "text-accent text-center font-bold mt-4";
+                        form.reset();
+                    } else {
+                        // Error
+                        throw new Error("Error al enviar");
+                    }
+                } catch (error) {
+                    status.textContent =
+                        "Hubo un error. Intenta de nuevo o escríbeme directamente.";
+                    status.className =
+                        "text-red-600 text-center font-bold mt-4";
+                } finally {
+                    status.classList.remove("hidden");
+                    submitBtn.textContent = "ENVIAR MENSAJE →";
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    </script>
 </Layout>
