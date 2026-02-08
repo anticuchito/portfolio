@@ -3,4 +3,4 @@ import type { Resume } from "../types";
 
 export const data: Resume = dataPortafolio;
 
-export const { basics, work, education, skills, projects } = data;
+export const { basics, work, education, skills, projects, interests } = data;
