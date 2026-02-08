@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Skill } from "../types";
+
+interface Props {
+    skill: Skill;
+}
+
+const { skill } = Astro.props;
+
+// Mapeo de skills a iconos
+const skillIcons: Record<string, string> = {
+    // Frontend
+    React: "skill-icons:react-light",
+    Angular: "skill-icons:angular-light",
+    Vue: "skill-icons:vuejs-light",
+    TypeScript: "skill-icons:typescript",
+    JavaScript: "skill-icons:javascript",
+    // Backend
+    "Node.js": "skill-icons:nodejs-light",
+    Express: "skill-icons:expressjs-light",
+    Python: "skill-icons:python-light",
+    // AWS & Cloud
+    "AWS Lambda": "skill-icons:aws-light",
+    DynamoDB: "devicon:dynamodb",
+    S3: "skill-icons:aws-light",
+    SQS: "skill-icons:aws-light",
+    // Bases de datos
+    MySQL: "skill-icons:mysql-light",
+    // APIs
+    GraphQL: "skill-icons:graphql-light",
+    tRPC: "logos:trpc",
+    // DevOps & Tools
+    Jenkins: "skill-icons:jenkins-light",
+    CircleCI: "skill-icons:githubactions-light",
+    Docker: "skill-icons:docker",
+    Git: "skill-icons:git",
+    GitHub: "skill-icons:github-light",
+    Jira: "simple-icons:jira",
+    Linux: "skill-icons:linux-light",
+};
+
+const iconName = skillIcons[skill.name] || "skill-icons:default";
+---
+
+<div
+    class="border-2 border-brutal p-4 flex items-center gap-4 hover:border-accent hover:translate-x-1 transition-all motion-safe:transition-all group bg-box"
+>
+    {
+        iconName && (
+            <Icon
+                name={iconName}
+                class="w-6 h-6 shrink-0 group-hover:scale-110 transition-transform motion-safe:transition-transform"
+                aria-hidden="true"
+            />
+        )
+    }
+    <div class="min-w-0">
+        <span class="font-bold text-sm block truncate">{skill.name}</span>
+        <span class="text-xs text-secondary">{skill.level}</span>
+    </div>
+</div>

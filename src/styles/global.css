@@ -4,6 +4,7 @@
 
 :root {
   /* Modo claro - Ocre/Grises */
+  color-scheme: light;
   --bg-primary: #e8e4dc;
   --bg-secondary: #d4cfc4;
   --text-primary: #1a1a1a;
@@ -16,6 +17,7 @@
 
 .dark {
   /* Modo oscuro */
+  color-scheme: dark;
   --bg-primary: #1a1a1a;
   --bg-secondary: #2a2a2a;
   --text-primary: #e8e4dc;
@@ -34,7 +36,6 @@ html {
   font-family: 'Courier New', Courier, monospace;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body {
@@ -58,7 +59,7 @@ body {
 .box-brutal {
   border: 4px solid var(--border-color);
   background-color: var(--box-bg);
-  transition: all 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .box-brutal:hover {
@@ -92,7 +93,7 @@ a:hover {
   padding: 12px 24px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 .btn-brutal:hover {
@@ -132,4 +133,27 @@ a:hover {
 /* Animación sutil para el modo toggle */
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Respetar preferencia de reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .box-brutal:hover,
+  .box-brutal:active {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .btn-brutal:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }

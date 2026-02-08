@@ -1,64 +1,99 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { basics, skills } from "../lib/data";
+import Skill from "../components/Skills.astro";
+
+const personalSummary =
+    "Cuando no estoy programando, me gusta hacer música con sintetizadores analogicos y explorar nuevas tecnologías. También me gusta leer e ir a conciertos";
+
+// Mapeo de keywords a categorías
+const keywordToCategory: Record<string, string> = {
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Cloud": "Cloud & AWS",
+    "Base de Datos": "Bases de Datos",
+    "API": "APIs",
+    "CI/CD": "DevOps & Tools",
+    "DevOps": "DevOps & Tools",
+    "Control de Versiones": "DevOps & Tools",
+    "Gestión de Proyectos": "DevOps & Tools",
+    "Sistemas": "DevOps & Tools",
+};
+
+// Función helper para obtener skills por categoría
+function getSkillsByCategory(category: string) {
+    return skills.filter((s) =>
+        s.keywords.some((keyword) => keywordToCategory[keyword] === category),
+    );
+}
+
+// Categorías a mostrar
+const categories = [
+    "Frontend",
+    "Backend",
+    "Cloud & AWS",
+    "Bases de Datos",
+    "APIs",
+    "DevOps & Tools",
+];
 ---
 
 <Layout title="About | Portfolio">
-  <div class="max-w-3xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-8">
-      ABOUT <span class="accent">//</span>
-    </h1>
+    <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-8">
+            ABOUT <span class="accent">//</span>
+        </h1>
 
-    <div class="space-y-8">
-      <section class="box-brutal p-8">
-        <h2 class="text-2xl font-bold mb-4">¿QUIÉN SOY?</h2>
-        <p class="text-secondary leading-relaxed mb-4">
-          [Escribe aquí una breve descripción sobre ti. Sé honesto, directo. 
-          No uses jerga corporativa. Habla como persona real.]
-        </p>
-        <p class="text-secondary leading-relaxed">
-          [Algo más personal. Qué te gusta hacer fuera del trabajo, 
-          qué te motiva, por qué haces lo que haces.]
-        </p>
-      </section>
+        <div class="space-y-8">
+            <section class="box-brutal p-8">
+                <h2 class="text-2xl font-bold mb-4">¿QUIÉN SOY?</h2>
+                <p class="text-secondary leading-relaxed mb-4">
+                    {basics.summary}
+                </p>
+                <p class="text-secondary leading-relaxed">
+                    {personalSummary}
+                </p>
+            </section>
 
-      <section class="box-brutal p-8">
-        <h2 class="text-2xl font-bold mb-4">HABILIDADES</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 1]</span>
-          </div>
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 2]</span>
-          </div>
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 3]</span>
-          </div>
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 4]</span>
-          </div>
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 5]</span>
-          </div>
-          <div class="border-2 border-brutal p-3 text-center">
-            <span class="font-bold">[Skill 6]</span>
-          </div>
+            <section class="box-brutal p-8">
+                <h2 class="text-2xl font-bold mb-6">HABILIDADES</h2>
+
+                {
+                    categories.map((category) => {
+                        const skills = getSkillsByCategory(category);
+                        if (skills.length === 0) return null;
+                        return (
+                            <div class="mb-8 last:mb-0">
+                                <h3 class="text-lg font-bold mb-4 text-secondary uppercase tracking-wider">
+                                    {category}
+                                </h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {skills.map((skill) => (
+                                        <Skill skill={skill} />
+                                    ))}
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+            </section>
+
+            <section class="box-brutal p-8">
+                <h2 class="text-2xl font-bold mb-4">INTERESES</h2>
+                <ul class="list-disc list-inside space-y-2 text-secondary">
+                    <li>[Interés 1]</li>
+                    <li>[Interés 2]</li>
+                    <li>[Interés 3]</li>
+                    <li>[Interés 4]</li>
+                </ul>
+            </section>
+
+            <div class="flex gap-4 flex-wrap">
+                <a href="/experiencia" class="btn-brutal">
+                    → VER EXPERIENCIA
+                </a>
+                <a href="/contacto" class="btn-brutal"> → CONTACTAR </a>
+            </div>
         </div>
-      </section>
-
-      <section class="box-brutal p-8">
-        <h2 class="text-2xl font-bold mb-4">INTERESES</h2>
-        <ul class="list-disc list-inside space-y-2 text-secondary">
-          <li>[Interés 1]</li>
-          <li>[Interés 2]</li>
-          <li>[Interés 3]</li>
-          <li>[Interés 4]</li>
-        </ul>
-      </section>
-
-      <div class="flex gap-4">
-        <a href="/experiencia" class="btn-brutal">→ VER EXPERIENCIA</a>
-        <a href="/contacto" class="btn-brutal">→ CONTACTAR</a>
-      </div>
     </div>
-  </div>
 </Layout>

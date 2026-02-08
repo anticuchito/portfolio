@@ -1,0 +1,205 @@
+{
+  "basics": {
+    "name": "Miguel Rivero Pinto",
+    "label": "Desarrollador Full Stack",
+    "image": "",
+    "email": "macroo14@gmail.com",
+    "phone": "+569 49407971",
+    "url": "",
+    "summary": "Desarrollador Full Stack con más de 4 años de experiencia construyendo aplicaciones y servicios serverless en AWS. He trabajado en empresas como TCS y Mousepadlab, donde he desarrollado desde microservicios con Lambda y DynamoDB hasta aplicaciones frontend con React y Angular. Me gusta resolver problemas reales con código limpio y bien pensado.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Arica",
+      "countryCode": "CL",
+      "region": "Arica y Parinacota"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "miguel-rivero-pinto-9021a31b9",
+        "url": "https://linkedin.com/in/miguel-rivero-pinto-9021a31b9"
+      },
+      {
+        "network": "GitHub",
+        "username": "",
+        "url": ""
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Tata Consultancy Services",
+      "position": "Desarrollador Full Stack",
+      "url": "",
+      "startDate": "2023-09-01",
+      "endDate": null,
+      "summary": "Desarrollo y mantenimiento de servicios serverless y aplicaciones frontend para proyectos de gran escala.",
+      "highlights": [
+        "Desarrollé y mantuve servicios de backend serverless utilizando AWS Lambda, DynamoDB, S3, SQS y JavaScript",
+        "Resolví un bug crítico en el servicio de cálculo de precios que afectaba la integración con la API externa, corrigiendo la lógica de negocio y eliminando el error en producción",
+        "Colaboré en la migración técnica completa tras adquisición corporativa, trasladando infraestructura cloud (AWS), repositorios Git y bases de datos (DynamoDB, MySQL, PL/SQL) entre organizaciones, asegurando cero interrupciones operativas",
+        "Desarrollé scripts de automatización en Python para tareas internas del equipo, incluyendo descarga masiva de documentos y migración de repositorios, reduciendo significativamente el tiempo dedicado a tareas repetitivas",
+        "Implementé y mantuve aplicaciones frontend con React y Angular, integrándolas con servicios backend y gestionando deployments mediante Jenkins y pipelines CI/CD",
+        "Trabajé con metodologías ágiles utilizando Jira para gestión de tickets y seguimiento de proyectos, colaborando en equipos multifuncionales"
+      ]
+    },
+    {
+      "name": "Mousepadlab",
+      "position": "Desarrollador Full Stack",
+      "url": "",
+      "startDate": "2021-11-01",
+      "endDate": "2023-09-01",
+      "summary": "Desarrollo de servicios serverless, integraciones con terceros y mejora continua de productos internos.",
+      "highlights": [
+        "Implementé un sistema de reportes para mejorar la forma en que se envían los pedidos al servicio de envío de terceros",
+        "Implementé servicios de mejora de imagen y servicios críticos en Python, mejorando la experiencia de los usuarios",
+        "Integré servicios como Mercado Pago, Facebook Ads y Google Ads con nuestros servicios internos",
+        "Implementé pipelines de CI/CD para automatizar los despliegues",
+        "Mantuve y evolucioné servicios backend serverless utilizando AWS Lambda, SQS, DynamoDB y S3 junto a GraphQL, posteriormente migrando a tRPC para mayor integración con TypeScript",
+        "Mejoré el sistema ERP interno de la compañía, desarrollando nuevas funcionalidades y aplicando buenas prácticas"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "CFT Estatal de Arica y Parinacota",
+      "url": "",
+      "area": "Informática y Aplicaciones Tecnológicas",
+      "studyType": "Técnico de Nivel Superior",
+      "startDate": "",
+      "endDate": "2023-06-01",
+      "score": "",
+      "courses": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "React",
+      "level": "Avanzado",
+      "keywords": ["Frontend", "JavaScript Library", "UI"]
+    },
+    {
+      "name": "Angular",
+      "level": "Avanzado",
+      "keywords": ["Frontend", "TypeScript", "Framework"]
+    },
+    {
+      "name": "Vue",
+      "level": "Intermedio",
+      "keywords": ["Frontend", "JavaScript", "Framework"]
+    },
+    {
+      "name": "TypeScript",
+      "level": "Avanzado",
+      "keywords": ["Frontend", "Backend", "JavaScript Superset"]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Avanzado",
+      "keywords": ["Frontend", "Backend", "Fullstack"]
+    },
+    {
+      "name": "Node.js",
+      "level": "Avanzado",
+      "keywords": ["Backend", "JavaScript", "Servidor"]
+    },
+    {
+      "name": "Express",
+      "level": "Avanzado",
+      "keywords": ["Backend", "Node.js", "API"]
+    },
+    {
+      "name": "Python",
+      "level": "Avanzado",
+      "keywords": ["Backend", "Scripting", "Automatización"]
+    },
+    {
+      "name": "AWS Lambda",
+      "level": "Avanzado",
+      "keywords": ["Cloud", "Serverless", "AWS"]
+    },
+    {
+      "name": "DynamoDB",
+      "level": "Avanzado",
+      "keywords": ["Base de Datos", "NoSQL", "AWS"]
+    },
+    {
+      "name": "S3",
+      "level": "Avanzado",
+      "keywords": ["Cloud", "Storage", "AWS"]
+    },
+    {
+      "name": "SQS",
+      "level": "Avanzado",
+      "keywords": ["Cloud", "Messaging", "AWS"]
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermedio",
+      "keywords": ["Base de Datos", "SQL", "Backend"]
+    },
+    {
+      "name": "GraphQL",
+      "level": "Intermedio",
+      "keywords": ["API", "Backend", "Query Language"]
+    },
+    {
+      "name": "tRPC",
+      "level": "Intermedio",
+      "keywords": ["API", "TypeScript", "Backend"]
+    },
+    {
+      "name": "Jenkins",
+      "level": "Intermedio",
+      "keywords": ["CI/CD", "DevOps", "Automatización"]
+    },
+    {
+      "name": "CircleCI",
+      "level": "Intermedio",
+      "keywords": ["CI/CD", "DevOps", "Automatización"]
+    },
+    {
+      "name": "Docker",
+      "level": "Intermedio",
+      "keywords": ["DevOps", "Contenedores", "Infraestructura"]
+    },
+    {
+      "name": "Git",
+      "level": "Avanzado",
+      "keywords": ["Control de Versiones", "Colaboración"]
+    },
+    {
+      "name": "GitHub",
+      "level": "Avanzado",
+      "keywords": ["Control de Versiones", "Colaboración", "Git"]
+    },
+    {
+      "name": "Jira",
+      "level": "Avanzado",
+      "keywords": ["Gestión de Proyectos", "Agile"]
+    },
+    {
+      "name": "Linux",
+      "level": "Avanzado",
+      "keywords": ["Sistemas", "Terminal", "DevOps"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Lectura y escritura intermedio"
+    }
+  ],
+  "projects": [],
+  "volunteer": [],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "interests": [],
+  "references": []
+}
