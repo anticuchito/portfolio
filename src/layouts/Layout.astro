@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
-import { basics } from "../lib/data";
+import { basics, projects } from "../lib/data";
 
 const onlyName = basics.name.split(" ")[0];
+const hasProjects = projects && projects.length > 0;
 
 export interface Props {
     title: string;
@@ -74,11 +75,13 @@ console.log("Current path:", currentPath);
                             class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 ${currentPath === "/experiencia" ? "text-accent border-b-2 border-accent" : ""}`}
                             >EXPERIENCIA</a
                         >
-                        <a
-                            href="/proyectos"
-                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 ${currentPath === "/proyectos" ? "text-accent border-b-2 border-accent" : ""}`}
-                            >PROYECTOS</a
-                        >
+                        {hasProjects && (
+                            <a
+                                href="/proyectos"
+                                class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 ${currentPath === "/proyectos" ? "text-accent border-b-2 border-accent" : ""}`}
+                                >PROYECTOS</a
+                            >
+                        )}
                         <a
                             href="/contacto"
                             class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 ${currentPath === "/contacto" ? "text-accent border-b-2 border-accent" : ""}`}
@@ -129,11 +132,13 @@ console.log("Current path:", currentPath);
                             class={`text-base font-bold py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/experiencia" ? "text-accent border-l-4 border-accent pl-3" : "pl-4"}`}
                             >EXPERIENCIA</a
                         >
-                        <a
-                            href="/proyectos"
-                            class={`text-base font-bold py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/proyectos" ? "text-accent border-l-4 border-accent pl-3" : "pl-4"}`}
-                            >PROYECTOS</a
-                        >
+                        {hasProjects && (
+                            <a
+                                href="/proyectos"
+                                class={`text-base font-bold py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/proyectos" ? "text-accent border-l-4 border-accent pl-3" : "pl-4"}`}
+                                >PROYECTOS</a
+                            >
+                        )}
                         <a
                             href="/contacto"
                             class={`text-base font-bold py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/contacto" ? "text-accent border-l-4 border-accent pl-3" : "pl-4"}`}

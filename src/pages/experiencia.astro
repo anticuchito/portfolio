@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { work } from "../lib/data";
+import { work, projects } from "../lib/data";
 import { formatPeriod } from "../lib/date";
+
+const hasProjects = projects && projects.length > 0;
 ---
 
 <Layout title="Experiencia | Portfolio">
@@ -43,13 +45,15 @@ import { formatPeriod } from "../lib/date";
         <div class="mt-8 p-6 border-4 border-brutal bg-secondary">
             <h3 class="font-bold mb-2">¿QUÉ BUSCO?</h3>
             <p class="text-secondary">
-                [Describe qué tipo de proyectos o roles te interesan ahora. Sé
-                honesto sobre tus expectativas.]
+                Busco oportunidades remotas como Full Stack Developer donde
+                pueda seguir trabajando con arquitecturas serverless y AWS. Me
+                interesan equipos que valoren la autonomía, las buenas prácticas
+                y el código bien pensado.
             </p>
         </div>
 
         <div class="mt-8 flex gap-4">
-            <a href="/proyectos" class="btn-brutal">→ VER PROYECTOS</a>
+            {hasProjects && <a href="/proyectos" class="btn-brutal">→ VER PROYECTOS</a>}
             <a href="/contacto" class="btn-brutal">→ CONTACTAR</a>
         </div>
     </div>

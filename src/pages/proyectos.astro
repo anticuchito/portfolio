@@ -1,32 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { projects } from "../lib/data";
 
-const projects = [
-  {
-    title: "[Nombre Proyecto 1]",
-    description: "[Breve descripción del proyecto. Qué problema resuelve, qué tecnologías usaste.]",
-    tech: ["[Tech 1]", "[Tech 2]", "[Tech 3]"],
-    link: "#",
-    github: "#",
-    status: "Completado"
-  },
-  {
-    title: "[Nombre Proyecto 2]",
-    description: "[Descripción del segundo proyecto. Qué aprendiste haciéndolo.]",
-    tech: ["[Tech 1]", "[Tech 2]"],
-    link: "#",
-    github: "#",
-    status: "En progreso"
-  },
-  {
-    title: "[Nombre Proyecto 3]",
-    description: "[Tercer proyecto. Puede ser más experimental o personal.]",
-    tech: ["[Tech 1]", "[Tech 2]", "[Tech 3]", "[Tech 4]"],
-    link: "#",
-    github: "#",
-    status: "Completado"
-  }
-];
+// Si no hay proyectos, redirigir al home
+if (!projects || projects.length === 0) {
+  return Astro.redirect('/');
+}
 ---
 
 <Layout title="Proyectos | Portfolio">
@@ -39,37 +18,32 @@ const projects = [
       {projects.map((project) => (
         <article class="box-brutal p-6 md:p-8 flex flex-col">
           <div class="flex justify-between items-start mb-4">
-            <h2 class="text-xl md:text-2xl font-bold">{project.title}</h2>
-            <span class={`text-xs font-bold px-2 py-1 border-2 ${
-              project.status === 'Completado' 
-                ? 'border-accent text-accent' 
-                : 'border-brutal text-secondary'
-            }`}>
-              {project.status}
-            </span>
+            <h2 class="text-xl md:text-2xl font-bold">{project.name}</h2>
+            {project.endDate && (
+              <span class="text-xs font-bold px-2 py-1 border-2 border-accent text-accent">
+                Completado
+              </span>
+            )}
           </div>
           
           <p class="text-secondary mb-6 flex-grow">
             {project.description}
           </p>
 
-          <div class="flex flex-wrap gap-2 mb-6">
-            {project.tech.map((tech) => (
-              <span class="text-xs font-bold border-2 border-brutal px-2 py-1">
-                {tech}
-              </span>
-            ))}
-          </div>
+          {project.highlights && project.highlights.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.highlights.map((highlight) => (
+                <span class="text-xs font-bold border-2 border-brutal px-2 py-1">
+                  {highlight}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div class="flex gap-4 mt-auto">
-            {project.link !== '#' && (
-              <a href={project.link} class="btn-brutal text-sm" target="_blank" rel="noopener">
+            {project.url && (
+              <a href={project.url} class="btn-brutal text-sm" target="_blank" rel="noopener noreferrer">
                 VER DEMO →
-              </a>
-            )}
-            {project.github !== '#' && (
-              <a href={project.github} class="btn-brutal text-sm" target="_blank" rel="noopener">
-                CÓDIGO →
               </a>
             )}
           </div>
@@ -79,7 +53,7 @@ const projects = [
 
     <div class="mt-12 text-center">
       <p class="text-secondary mb-4">¿Quieres ver más?</p>
-      <a href="https://github.com/[tu-usuario]" class="btn-brutal" target="_blank" rel="noopener">
+      <a href="https://github.com/miguel-rivero-pinto" class="btn-brutal" target="_blank" rel="noopener noreferrer">
         GITHUB →
       </a>
     </div>
