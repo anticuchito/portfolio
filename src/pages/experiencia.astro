@@ -1,64 +1,56 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const experiences = [
-  {
-    role: "[Tu Rol]",
-    company: "[Nombre Empresa]",
-    period: "2023 - Presente",
-    description: "[Descripción breve de tus responsabilidades y logros. Sé específico pero conciso.]"
-  },
-  {
-    role: "[Rol Anterior]",
-    company: "[Empresa Anterior]",
-    period: "2021 - 2023",
-    description: "[Qué hiciste, qué aprendiste, qué impacto tuviste.]"
-  },
-  {
-    role: "[Primer Rol]",
-    company: "[Primera Empresa]",
-    period: "2019 - 2021",
-    description: "[Tus inicios, fundamentos que aprendiste, proyectos clave.]"
-  }
-];
+import Layout from "../layouts/Layout.astro";
+import { work } from "../lib/data";
+import { formatPeriod } from "../lib/date";
 ---
 
 <Layout title="Experiencia | Portfolio">
-  <div class="max-w-3xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-8">
-      EXPERIENCIA <span class="accent">//</span>
-    </h1>
+    <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-8">
+            EXPERIENCIA <span class="accent">//</span>
+        </h1>
 
-    <div class="space-y-6">
-      {experiences.map((exp, index) => (
-        <article class="box-brutal p-6 md:p-8 relative">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
-            <div>
-              <h2 class="text-xl md:text-2xl font-bold">{exp.role}</h2>
-              <p class="accent font-bold">{exp.company}</p>
-            </div>
-            <span class="text-sm text-secondary font-bold border-2 border-brutal px-3 py-1">
-              {exp.period}
-            </span>
-          </div>
-          <p class="text-secondary leading-relaxed">
-            {exp.description}
-          </p>
-        </article>
-      ))}
-    </div>
+        <div class="space-y-6">
+            {
+                work.map((w) => (
+                    <article class="box-brutal p-6 md:p-8 relative">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                            <div>
+                                <h2 class="text-xl md:text-2xl font-bold">
+                                    {w.position}
+                                </h2>
+                                <p class="accent font-bold">{w.name}</p>
+                            </div>
+                            <span class="text-sm text-secondary font-bold border-2 border-brutal px-3 py-1 whitespace-nowrap">
+                                {formatPeriod(w.startDate, w.endDate)}
+                            </span>
+                        </div>
+                        <p class="text-secondary leading-relaxed mb-4">
+                            {w.summary}
+                        </p>
+                        {w.highlights && w.highlights.length > 0 && (
+                            <ul class="list-disc list-inside space-y-2 text-secondary text-sm">
+                                {w.highlights.map((highlight) => (
+                                    <li class="leading-relaxed">{highlight}</li>
+                                ))}
+                            </ul>
+                        )}
+                    </article>
+                ))
+            }
+        </div>
 
-    <div class="mt-8 p-6 border-4 border-brutal bg-secondary">
-      <h3 class="font-bold mb-2">¿QUÉ BUSCO?</h3>
-      <p class="text-secondary">
-        [Describe qué tipo de proyectos o roles te interesan ahora. 
-        Sé honesto sobre tus expectativas.]
-      </p>
-    </div>
+        <div class="mt-8 p-6 border-4 border-brutal bg-secondary">
+            <h3 class="font-bold mb-2">¿QUÉ BUSCO?</h3>
+            <p class="text-secondary">
+                [Describe qué tipo de proyectos o roles te interesan ahora. Sé
+                honesto sobre tus expectativas.]
+            </p>
+        </div>
 
-    <div class="mt-8 flex gap-4">
-      <a href="/proyectos" class="btn-brutal">→ VER PROYECTOS</a>
-      <a href="/contacto" class="btn-brutal">→ CONTACTAR</a>
+        <div class="mt-8 flex gap-4">
+            <a href="/proyectos" class="btn-brutal">→ VER PROYECTOS</a>
+            <a href="/contacto" class="btn-brutal">→ CONTACTAR</a>
+        </div>
     </div>
-  </div>
 </Layout>
