@@ -137,7 +137,7 @@
     {
       "name": "MySQL",
       "level": "Intermedio",
-      "keywords": ["Base de Datos", "SQL", "Backend"]
+      "keywords": ["Base de Datos", "SQL"]
     },
     {
       "name": "GraphQL",
@@ -183,6 +183,11 @@
       "name": "Linux",
       "level": "Avanzado",
       "keywords": ["Sistemas", "Terminal", "DevOps"]
+    },
+    {
+      "name": "PostgreSQL",
+      "level": "Intermedio",
+      "keywords": ["Base de Datos", "SQL"]
     }
   ],
   "languages": [
@@ -200,6 +205,11 @@
   "awards": [],
   "certificates": [],
   "publications": [],
-  "interests": [],
+  "interests": [
+    "Me gusta crear musica electronica y tocar la guitarra",
+    "Me gusta el Cine y el Anime",
+    "Me intersa la fotografia analoga y digital antigua",
+    "me gusta experimentar con nuevas tecnologias y aprender cosas nuevas"
+  ],
   "references": []
 }
