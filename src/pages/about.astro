@@ -1,41 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { basics, skills } from "../lib/data";
+import { basics } from "../lib/data";
 import Skill from "../components/Skills.astro";
+import {
+    categoryOrder,
+    getSkillsByCategory,
+    getTopAndOtherSkills,
+} from "../lib/skills";
 
 const personalSummary =
     "Cuando no estoy programando, me gusta hacer música con sintetizadores analogicos y explorar nuevas tecnologías. También me gusta leer e ir a conciertos";
 
-// Mapeo de keywords a categorías
-const keywordToCategory: Record<string, string> = {
-    "Frontend": "Frontend",
-    "Backend": "Backend",
-    "Cloud": "Cloud & AWS",
-    "Base de Datos": "Bases de Datos",
-    "API": "APIs",
-    "CI/CD": "DevOps & Tools",
-    "DevOps": "DevOps & Tools",
-    "Control de Versiones": "DevOps & Tools",
-    "Gestión de Proyectos": "DevOps & Tools",
-    "Sistemas": "DevOps & Tools",
-};
-
-// Función helper para obtener skills por categoría
-function getSkillsByCategory(category: string) {
-    return skills.filter((s) =>
-        s.keywords.some((keyword) => keywordToCategory[keyword] === category),
-    );
-}
-
-// Categorías a mostrar
-const categories = [
-    "Frontend",
-    "Backend",
-    "Cloud & AWS",
-    "Bases de Datos",
-    "APIs",
-    "DevOps & Tools",
-];
+const { topSkillsList, otherSkillsList } = getTopAndOtherSkills();
 ---
 
 <Layout title="About | Portfolio">
@@ -58,24 +34,60 @@ const categories = [
             <section class="box-brutal p-8">
                 <h2 class="text-2xl font-bold mb-6">HABILIDADES</h2>
 
-                {
-                    categories.map((category) => {
-                        const skills = getSkillsByCategory(category);
-                        if (skills.length === 0) return null;
-                        return (
-                            <div class="mb-8 last:mb-0">
-                                <h3 class="text-lg font-bold mb-4 text-secondary uppercase tracking-wider">
-                                    {category}
-                                </h3>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {skills.map((skill) => (
-                                        <Skill skill={skill} />
-                                    ))}
+                <!-- Top Skills -->
+                <div id="top-skills">
+                    {
+                        categoryOrder.map((category: string) => {
+                            const categorySkills =
+                                getSkillsByCategory(category);
+                            const visibleSkills = categorySkills.filter((s) =>
+                                topSkillsList.some((ts) => ts.name === s.name),
+                            );
+                            if (visibleSkills.length === 0) return null;
+                            return (
+                                <div class="mb-6 last:mb-0">
+                                    <h3 class="text-lg font-bold mb-4 text-secondary uppercase tracking-wider">
+                                        {category}
+                                    </h3>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {visibleSkills.map((skill) => (
+                                            <Skill skill={skill} />
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })
-                }
+                            );
+                        })
+                    }
+                </div>
+
+                <!-- Otras Skills (ocultas inicialmente) -->
+                <div
+                    id="other-skills"
+                    class="hidden mt-6 pt-6 border-t-4 border-brutal"
+                >
+                    <h3
+                        class="text-lg font-bold mb-4 text-secondary uppercase tracking-wider"
+                    >
+                        Otras habilidades
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {
+                            otherSkillsList.map((skill) => (
+                                <Skill skill={skill} />
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <!-- Botón Ver todas -->
+                <button
+                    id="toggle-skills-btn"
+                    class="btn-brutal w-full mt-6 text-center"
+                    aria-expanded="false"
+                    aria-controls="other-skills"
+                >
+                    <span id="toggle-text">Ver todas las habilidades ↓</span>
+                </button>
             </section>
 
             <section class="box-brutal p-8">
@@ -96,4 +108,26 @@ const categories = [
             </div>
         </div>
     </div>
+
+    <script>
+        const toggleBtn = document.getElementById("toggle-skills-btn");
+        const otherSkills = document.getElementById("other-skills");
+        const toggleText = document.getElementById("toggle-text");
+
+        toggleBtn?.addEventListener("click", () => {
+            const isExpanded =
+                toggleBtn.getAttribute("aria-expanded") === "true";
+
+            if (isExpanded) {
+                otherSkills?.classList.add("hidden");
+                toggleBtn.setAttribute("aria-expanded", "false");
+                if (toggleText)
+                    toggleText.textContent = "Ver todas las habilidades ↓";
+            } else {
+                otherSkills?.classList.remove("hidden");
+                toggleBtn.setAttribute("aria-expanded", "true");
+                if (toggleText) toggleText.textContent = "Ver menos ↑";
+            }
+        });
+    </script>
 </Layout>
