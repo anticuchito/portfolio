@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Interests from "../components/Interests.astro";
 import { basics } from "../lib/data";
 import Skill from "../components/Skills.astro";
 import {
@@ -90,15 +91,7 @@ const { topSkillsList, otherSkillsList } = getTopAndOtherSkills();
                 </button>
             </section>
 
-            <section class="box-brutal p-8">
-                <h2 class="text-2xl font-bold mb-4">INTERESES</h2>
-                <ul class="list-disc list-inside space-y-2 text-secondary">
-                    <li>[Interés 1]</li>
-                    <li>[Interés 2]</li>
-                    <li>[Interés 3]</li>
-                    <li>[Interés 4]</li>
-                </ul>
-            </section>
+            <Interests />
 
             <div class="flex gap-4 flex-wrap">
                 <a href="/experiencia" class="btn-brutal">

@@ -1,0 +1,18 @@
+---
+import { interests } from "../lib/data";
+---
+
+{
+  interests && interests.length > 0 && (
+    <section class="box-brutal p-8">
+      <h2 class="text-2xl font-bold mb-4">INTERESES</h2>
+      <ul class="list-disc list-inside space-y-2 text-secondary">
+        {interests.map((interest: string) => (
+          <li class="hover:text-accent transition-colors">
+            {interest}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
