@@ -1,9 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { basics, projects } from "../lib/data";
+import { basics, projects, work } from "../lib/data";
 
 const onlyName = basics.name.split(" ")[0];
 const hasProjects = projects && projects.length > 0;
+
+// Trabajo actual (sin endDate)
+const currentJob = work.find((w) => w.endDate === null);
+const statusText = currentJob
+    ? `Trabajando en ${currentJob.name}`
+    : "Disponible para proyectos";
 ---
 
 <Layout title="Inicio | Portfolio">
@@ -102,9 +108,7 @@ const hasProjects = projects && projects.length > 0;
             >
                 <div>
                     <p class="text-sm text-secondary mb-1">ESTADO ACTUAL</p>
-                    <p class="font-bold">
-                        Disponible para proyectos / Trabajando en TCS
-                    </p>
+                    <p class="font-bold">{statusText}</p>
                 </div>
                 <div class="text-right">
                     <p class="text-sm text-secondary mb-1">UBICACIÓN</p>
