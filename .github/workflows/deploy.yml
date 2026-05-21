@@ -16,20 +16,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: asetup bun
-        uses: oven-sh/setup-bun@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          bun-version: latest
+          version: 10
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Build porject
-        run: bun run build
+      - name: Run tests
+        run: pnpm test
 
-      - name: deploy to CLoudflare Pages
+      - name: Build project
+        run: pnpm run build
+
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=portfolio
-          packageManager: bun
+          command: deploy
+          packageManager: pnpm
