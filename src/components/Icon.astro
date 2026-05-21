@@ -1,0 +1,72 @@
+---
+import { getIconData, iconToSVG } from "@iconify/utils";
+import type { HTMLAttributes } from "astro/types";
+
+import * as skillIconsPkg from "@iconify-json/skill-icons";
+import * as deviconPkg from "@iconify-json/devicon";
+import * as logosPkg from "@iconify-json/logos";
+import * as simpleIconsPkg from "@iconify-json/simple-icons";
+
+interface Props extends HTMLAttributes<"svg"> {
+    name: string;
+    title?: string;
+    desc?: string;
+    size?: number | string;
+    width?: number | string;
+    height?: number | string;
+}
+
+const collections: Record<string, any> = {
+    "skill-icons": skillIconsPkg.icons,
+    devicon: deviconPkg.icons,
+    logos: logosPkg.icons,
+    "simple-icons": simpleIconsPkg.icons,
+};
+
+const {
+    name = "",
+    title,
+    desc,
+    size,
+    width,
+    height,
+    class: className,
+    ...rest
+} = Astro.props;
+
+let [setName, iconName] = (name as string).split(":");
+
+// Si no hay iconName, asumir local (no soportado aquí, fallback)
+if (!iconName) {
+    iconName = setName;
+    setName = "";
+}
+
+const collection = setName ? collections[setName] : undefined;
+let svgBody = "";
+let svgAttrs: Record<string, string> = {};
+
+if (collection) {
+    const iconData = getIconData(collection, iconName);
+    if (iconData) {
+        const result = iconToSVG(iconData);
+        svgAttrs = result.attributes;
+        svgBody = result.body;
+    }
+}
+
+// Override size if provided
+if (size) {
+    svgAttrs.width = String(size);
+    svgAttrs.height = String(size);
+} else {
+    if (width) svgAttrs.width = String(width);
+    if (height) svgAttrs.height = String(height);
+}
+---
+
+<svg {...svgAttrs} class={className} data-icon={name} {...rest}>
+    {title && <title>{title}</title>}
+    {desc && <desc>{desc}</desc>}
+    <Fragment set:html={svgBody} />
+</svg>
