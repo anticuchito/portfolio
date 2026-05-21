@@ -61,29 +61,29 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
                     <nav class="hidden md:flex items-center gap-2">
                         <a
                             href="/"
-                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >INICIO</a
                         >
                         <a
                             href="/about"
-                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/about" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/about" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >ABOUT</a
                         >
                         <a
                             href="/experiencia"
-                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/experiencia" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/experiencia" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >EXPERIENCIA</a
                         >
                         {hasProjects && (
                             <a
                                 href="/proyectos"
-                                class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/proyectos" ? "bg-accent text-white" : "hover:text-accent"}`}
+                                class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/proyectos" ? "bg-accent text-white!" : "hover:text-accent"}`}
                                 >PROYECTOS</a
                             >
                         )}
                         <a
                             href="/contacto"
-                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/contacto" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded py-1 px-2 no-underline ${currentPath === "/contacto" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >CONTACTO</a
                         >
 
@@ -118,29 +118,29 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
                     <div class="flex flex-col gap-2">
                         <a
                             href="/"
-                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >INICIO</a
                         >
                         <a
                             href="/about"
-                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/about" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/about" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >ABOUT</a
                         >
                         <a
                             href="/experiencia"
-                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/experiencia" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/experiencia" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >EXPERIENCIA</a
                         >
                         {hasProjects && (
                             <a
                                 href="/proyectos"
-                                class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/proyectos" ? "bg-accent text-white" : "hover:text-accent"}`}
+                                class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/proyectos" ? "bg-accent text-white!" : "hover:text-accent"}`}
                                 >PROYECTOS</a
                             >
                         )}
                         <a
                             href="/contacto"
-                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/contacto" ? "bg-accent text-white" : "hover:text-accent"}`}
+                            class={`text-base font-bold py-2 pl-4 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded ${currentPath === "/contacto" ? "bg-accent text-white!" : "hover:text-accent"}`}
                             >CONTACTO</a
                         >
 
