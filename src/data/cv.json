@@ -29,11 +29,26 @@
   },
   "work": [
     {
+      "name": "Autofact",
+      "position": "Desarrollador Full Stack",
+      "url": "",
+      "startDate": "2026-03-02",
+      "endDate": null,
+      "summary": "Desarrollo de servicios y mejora continua de productos internos y externos.",
+      "highlights": [
+        "Desarrollo de servicios backend serverless utilizando AWS Lambda, DynamoDB, S3, SQS y JavaScript",
+        "Desarrollo de aplicaciones frontend con React, integrándolas con servicios backend y gestionando deployments mediante herramientas internas y pipelines CI/CD de bitbucket",
+        "Colaboración en equipos multifuncionales utilizando metodologías ágiles con Jira para gestión de tickets y seguimiento de proyectos",
+        "Participación en el desarrollo de nuevos productos y servicios aportando ideas y soluciones innovadoras",
+        "Participación en desarrollos de microfrontends para la integración de nuevos servicios en la herramienta de autofact"
+      ]
+    },
+    {
       "name": "Tata Consultancy Services",
       "position": "Desarrollador Full Stack",
       "url": "",
       "startDate": "2023-09-01",
-      "endDate": null,
+      "endDate": "2026-02-27",
       "summary": "Desarrollo y mantenimiento de servicios serverless y aplicaciones frontend para proyectos de gran escala.",
       "highlights": [
         "Desarrollé y mantuve servicios de backend serverless utilizando AWS Lambda, DynamoDB, S3, SQS y JavaScript",
@@ -206,10 +221,10 @@
   "certificates": [],
   "publications": [],
   "interests": [
-    "Me gusta crear musica electronica y tocar la guitarra",
+    "Me gusta crear música electrónica y tocar la guitarra",
     "Me gusta el Cine y el Anime",
-    "Me intersa la fotografia analoga y digital antigua",
-    "me gusta experimentar con nuevas tecnologias y aprender cosas nuevas"
+    "Me interesa la fotografía analógica y digital antigua",
+    "Me gusta experimentar con nuevas tecnologías y aprender cosas nuevas"
   ],
   "references": []
 }
